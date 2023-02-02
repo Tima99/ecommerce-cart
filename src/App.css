@@ -1,0 +1,97 @@
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@tailwind components;
+
+@layer components {
+  .card {
+    background-color: theme("colors.white");
+    border-radius: theme("borderRadius.lg");
+    padding: theme("spacing.6");
+    box-shadow: theme("boxShadow.xl");
+  }
+}
+
+.link {
+  @apply cursor-pointer;
+}
+
+.limit-line {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1rem;
+}
+
+.disable {
+  @apply bg-slate-600 border-slate-700 hover:bg-slate-600 cursor-not-allowed;
+}
+
+.animated-cart-product {
+  position: absolute;
+  width: 50px;
+  animation: animate 1s both;
+}
+.animated-cart-product > img {
+  width: 45px;
+  opacity: 0.72;
+}
+
+@keyframes animate {
+  to {
+    top: 0;
+    right: 0;
+    width: 15px;
+  }
+}
+#activeNav {
+  position: relative;
+}
+#activeNav::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  border-bottom: 4px solid white;
+}
+
+@media screen and (max-width: 500px) {
+  .menu {
+    transition: all 0.3s;
+  }
+  input[id="toggle-menu"]:not(:checked) ~ .menu {
+    display: none !important;
+  }
+  input[id="toggle-menu"]:checked ~ .menu {
+    display: flex !important;
+  }
+}
+
+.remove-card-animate{
+  animation: remove .3s 1 both;
+}
+
+@keyframes remove{
+  0%{
+    translate: 1rem;
+  }
+  50%{
+    translate: -1rem;
+  }
+  100%{
+    transform: 1rem;
+    scale: 0;
+  }
+}
