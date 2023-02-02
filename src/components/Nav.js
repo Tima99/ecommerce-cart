@@ -25,9 +25,6 @@ const Nav = () => {
       <div className="menu flex gap-4 w-max mobile:flex-col">
         <Link to={'/'} className="link" id={activeNav == 1 ? "activeNav" : ''}>Home</Link>
         <Link to={'/cart'} className="link" id={activeNav == 2 ? "activeNav" : ''}>Cart</Link>
-        <div className="link">Testimonials</div>
-        <div className="link">About us</div>
-        <div className="link">Contact us</div>
       </div>
       <div className="justify-self-end ml-auto pr-8">
         <span className="relative" id="cart-preview">
